@@ -1,14 +1,16 @@
 // Step 1: Simulate User Behavior
 // - Add event listeners for button clicks and form submissions.
 // - Use JavaScript to dynamically update the DOM based on user actions
-const button = document.getElementById('simulate-click')
-button.addEventListener('click', () => {
-    simulateClick()
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('simulate-click')
+  button.addEventListener('click', () => {
+    simulateClick('simulate-click', 'Button Clicked')
+  })
 
-const form = document.getElementById('user-form')
-form.addEventListener('submit', (event) => {
+  const form = document.getElementById('user-form')
+  form.addEventListener('submit', (event) => {
     event.preventDefault()
+  })
 })
 
 // Step 2: DOM Manipulation Functions
@@ -29,6 +31,22 @@ function simulateClick (containerId, text) {
     element.textContent = text
 }
 
+function handleFormSubmit (userForm, elementId) {
+    const input = document.getElementById('user-input')
+    const inputValue = input.value
+    const element = document.getElementById(elementId)
+    const errorMessage = document.getElementById('error-message')
+
+    if (inputValue === "") {
+        errorMessage.textContent = 'Input cannot be empty'
+        errorMessage.classList.remove('hidden')
+    }
+    else {
+        element.textContent = inputValue
+        errorMessage.classList.add('hidden')
+    }
+}
+
 // Step 3: Error Handling
 // - Display error messages in the DOM for invalid inputs or missing elements.
 // - Create reusable functions to handle common error cases.
@@ -37,4 +55,4 @@ function simulateClick (containerId, text) {
 // - Create modular utility functions, such as createElement(tag, attributes).
 // - Ensure all functions follow DRY principles for maintainability.
 
-module.exports = {addElementToDOM, removeElementFromDOM, simulateClick}
+module.exports = {addElementToDOM, removeElementFromDOM, simulateClick, handleFormSubmit}
