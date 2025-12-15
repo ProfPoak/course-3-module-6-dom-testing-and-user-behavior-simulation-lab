@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('user-form')
   form.addEventListener('submit', (event) => {
     event.preventDefault()
-    handleFormSubmit('dynamic-content')
+    handleFormSubmit('user-form','dynamic-content')
   })
 })
 
@@ -26,7 +26,7 @@ function simulateClick (containerId, text) {
     addElementToDOM(containerId, text)
 }
 
-function handleFormSubmit (elementId) {
+function handleFormSubmit (userForm, elementId) {
     const input = document.getElementById('user-input')
     const inputValue = input.value
     const element = document.getElementById(elementId)

@@ -46,13 +46,13 @@ describe('DOM Testing and User Behavior Simulation', () => {
     const input = document.getElementById('user-input')
     input.value = 'Test Input'
 
-    handleFormSubmit('dynamic-content')
+    handleFormSubmit('user-form', 'dynamic-content')
     const dynamicContent = document.getElementById('dynamic-content')
     expect(dynamicContent.textContent).toContain('Test Input')
   })
 
   it('should display an error message for empty input', () => {
-    handleFormSubmit('dynamic-content')
+    handleFormSubmit('user-form', 'dynamic-content')
     const errorMessage = document.getElementById('error-message')
     expect(errorMessage.textContent).toBe('Input cannot be empty')
     expect(errorMessage.classList.contains('hidden')).toBe(false)
