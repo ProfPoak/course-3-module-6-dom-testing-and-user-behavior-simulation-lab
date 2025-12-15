@@ -46,7 +46,7 @@ describe('DOM Testing and User Behavior Simulation', () => {
     const input = document.getElementById('user-input')
     input.value = 'Test Input'
 
-    handleFormSubmit('user-form', 'dynamic-content')
+    handleFormSubmit('dynamic-content')
     const dynamicContent = document.getElementById('dynamic-content')
     expect(dynamicContent.textContent).toContain('Test Input')
   })
